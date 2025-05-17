@@ -223,10 +223,10 @@ $(function () {
             stringsElement: '.typed-content',
             typeSpeed: 100,
             startDelay: 1200,
-            startDelay: 300,
+            startDelay: 500,
             showCursor: false
         });
-
+        console.log("Appplied");
     }
 
 
