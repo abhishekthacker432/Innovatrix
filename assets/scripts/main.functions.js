@@ -153,22 +153,22 @@ $(function () {
     });
 
     function setAnchors() {
-
         $anchorLink.each(function () {
-
             var href = $(this).attr('href');
-
-            if (href !== '#') {
-                var $anchorSection = $($(this).attr('href'));
-                $anchorSection.addClass('anchor-section');
-                $anchorSection.attr('data-pos', $anchorSection.offset().top);
+    
+            // Only proceed if href is a hash starting with '#'
+            if (href && href.startsWith('#') && href !== '#') {
+                var $anchorSection = $(href);
+                if ($anchorSection.length) {
+                    $anchorSection.addClass('anchor-section');
+                    $anchorSection.attr('data-pos', $anchorSection.offset().top);
+                }
             }
-
         });
-
+    
         $anchorSection = $body.find('.anchor-section');
-
     }
+    
 
     setAnchors();
 

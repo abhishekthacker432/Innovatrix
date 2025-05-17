@@ -1,4 +1,5 @@
 // Animate! By ThemeVillain
+console.log("plugin.animate.js loaded!");
 var $body = $('body'),
     // Animated variables
     animatedEl = $body.find('.animated, .grid-item'),
