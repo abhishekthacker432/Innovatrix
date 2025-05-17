@@ -168,7 +168,6 @@ $(function () {
     
         $anchorSection = $body.find('.anchor-section');
     }
-    
 
     setAnchors();
 
