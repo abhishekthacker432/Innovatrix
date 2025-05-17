@@ -222,10 +222,10 @@ $(function () {
         var typeAnimation = new Typed('.typed', {
             stringsElement: '.typed-content',
             typeSpeed: 100,
-            startDelay: 2400,
+            startDelay: 1200,
             showCursor: false
         });
-        console.log("Appplied changes");
+
     }
 
 
