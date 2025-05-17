@@ -223,6 +223,7 @@ $(function () {
             stringsElement: '.typed-content',
             typeSpeed: 100,
             startDelay: 1200,
+            startDelay: 300,
             showCursor: false
         });
 
