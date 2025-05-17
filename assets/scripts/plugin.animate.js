@@ -1,5 +1,5 @@
 // Animate! By ThemeVillain
-cansole.log("loaded");
+console.log("loaded");
 var $body = $('body'),
     // Animated variables
     animatedEl = $body.find('.animated, .grid-item'),
