@@ -55,7 +55,9 @@ function anchorSections(){
             hash = "#" + hash;
         }
     
-        var link = $anchorLink.filter('a[href="' + hash + '"]');
+        var link = $anchorLink.filter(function() {
+            return $(this).attr('href') === url;
+        });
     
         if(pos > 0 && pos > window.innerHeight/2 && !link.hasClass('active')) {
             $anchorLink.removeClass('active');
