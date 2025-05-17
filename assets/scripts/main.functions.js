@@ -222,7 +222,7 @@ $(function () {
         var typeAnimation = new Typed('.typed', {
             stringsElement: '.typed-content',
             typeSpeed: 100,
-            startDelay: 1200,
+            startDelay: 1600,
             showCursor: false
         });
 
