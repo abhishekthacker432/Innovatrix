@@ -1,12 +1,1 @@
-;(function($, win) {
-    $.fn.inViewport = function(cb) {
-        return this.each(function(i,el){
-            function visPx(){
-            var H = $(this).height(),
-                r = el.getBoundingClientRect(), t=r.top, b=r.bottom;
-            return cb.call(el, Math.max(0, t>0? H-t : (b<H?b:H)));  
-            } visPx();
-            $(win).on("resize scroll", visPx);
-        });
-    };
-}(jQuery, window));
+!function(n,t){n.fn.inViewport=function(i){return this.each(function(o,e){function c(){var t=n(this).height(),o=e.getBoundingClientRect(),c=o.top,r=o.bottom;return i.call(e,Math.max(0,c>0?t-c:r<t?r:t))}c(),n(t).on("resize scroll",c)})}}(jQuery,window);
