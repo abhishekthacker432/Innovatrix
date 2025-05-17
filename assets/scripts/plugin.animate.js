@@ -45,14 +45,23 @@ function animateItems(){
 function anchorSections(){
 
     // Change anchor links according to visible sections
-    $anchorSection.inViewport(function(pos){
+    $anchorSection.inViewport(function(pos) {
         var el = $(this);
         var hash = el.attr('id');
-        var link = $anchorLink.filter('a[href="#'+hash+'"]');
-        if(pos > 0 && pos > window.innerHeight/2 && !link.hasClass('active')){
+    
+        // Only try to find matching links if the hash is valid (non-empty string)
+        if(hash && hash.startsWith("#") === false) {
+            // hash is just an id, no # prefix, so add it here
+            hash = "#" + hash;
+        }
+    
+        var link = $anchorLink.filter('a[href="' + hash + '"]');
+    
+        if(pos > 0 && pos > window.innerHeight/2 && !link.hasClass('active')) {
             $anchorLink.removeClass('active');
             link.addClass('active');
         }
     });
+    
 
 }
