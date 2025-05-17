@@ -1,1 +1,68 @@
-var $body = $("body"), animatedEl = $body.find(".animated, .grid-item"), animatedText = $body.find(".animated-text"), $anchorSection = $body.find(".anchor-section"), $anchorLink = $body.find(".anchor-link"); function animateText() { animatedText.each(function () { var a = $(this), n = new TimelineLite, t = new SplitText(a, { type: "words,chars" }).chars; a.inViewport(function (i) { i > 0 && !a.hasClass("done-animating") && (a.css("opacity", 1), a.addClass("done-animating"), TweenMax.set(t, { y: 0, opacity: 1 }), n.staggerFrom(t, 1, { delay: .3, y: 80, opacity: 0, ease: Power3.easeOut }, .02, "+=0")) }) }) } function animateItems() { animatedEl.each(function () { var a = $(this); a.inViewport(function (n) { n > 0 && !a.hasClass("has-animated") && a.addClass("has-animated") }) }) } function anchorSections() { $anchorSection.inViewport(function (a) { var n = $(this).attr("id"); n && !1 === n.startsWith("#") && (n = "#" + n); var t = $anchorLink.filter(function () { return $(this).attr("href") === n }); a > 0 && a > window.innerHeight / 2 && !t.hasClass("active") && ($anchorLink.removeClass("active"), t.addClass("active")) }) }
+// Animate! By ThemeVillain
+var $body = $('body'),
+    // Animated variables
+    animatedEl = $body.find('.animated, .grid-item'),
+    animatedText = $body.find('.animated-text'),
+    $anchorSection = $body.find('.anchor-section'),
+    $anchorLink = $body.find('.anchor-link');
+        
+function animateText(){
+
+    // Text
+    animatedText.each(function(){
+        var el = $(this);
+        var tl = new TimelineLite;
+        var splitText = new SplitText(el, {type:"words,chars"}),
+        chars = splitText.chars;
+
+        el.inViewport(function(pos){
+            if(pos > 0 && !el.hasClass('done-animating')){
+                el.css('opacity', 1);
+                el.addClass('done-animating');
+                TweenMax.set(chars, {y: 0, opacity: 1});
+                tl.staggerFrom(chars, 1, {delay: .3, y:80, opacity: 0, ease:Power3.easeOut}, 0.02, "+=0");
+            }
+        });
+        
+    });
+}
+
+function animateItems(){
+    
+    // Other elements
+    animatedEl.each(function(){
+        var el = $(this);
+        el.inViewport(function(pos){
+            if(pos > 0 && !el.hasClass('has-animated')){
+                el.addClass('has-animated');
+            }
+        });
+    });
+
+}
+
+function anchorSections(){
+
+    // Change anchor links according to visible sections
+    $anchorSection.inViewport(function(pos) {
+        var el = $(this);
+        var hash = el.attr('id');
+    
+        // Only try to find matching links if the hash is valid (non-empty string)
+        if(hash && hash.startsWith("#") === false) {
+            // hash is just an id, no # prefix, so add it here
+            hash = "#" + hash;
+        }
+    
+        var link = $anchorLink.filter(function() {
+            return $(this).attr('href') === hash;
+        });
+    
+        if(pos > 0 && pos > window.innerHeight/2 && !link.hasClass('active')) {
+            $anchorLink.removeClass('active');
+            link.addClass('active');
+        }
+    });
+    
+
+}
