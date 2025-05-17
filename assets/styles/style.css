@@ -2204,6 +2204,7 @@ header.header, .burger {
     opacity: 1;
     display: block;
     transform: translateY(0);
+    margin-top: 10%;
   }
   body.menu-opened .menu:last-child {
     padding-bottom: 7.5rem;
