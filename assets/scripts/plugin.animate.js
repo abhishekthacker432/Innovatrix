@@ -56,7 +56,7 @@ function anchorSections(){
         }
     
         var link = $anchorLink.filter(function() {
-            return $(this).attr('href') === url;
+            return $(this).attr('href') === hash;
         });
     
         if(pos > 0 && pos > window.innerHeight/2 && !link.hasClass('active')) {
